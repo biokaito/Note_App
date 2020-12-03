@@ -12,7 +12,8 @@ import CategoryScreen from './CategoryScreen';
 import NoteScreen from './NoteScreen';
 import PriorityScreen from './PriorityScreen';
 import StatusScreen from './StatusScreen';
-import AccountScreen from './AccountScreen'
+import AccountScreen from './AccountScreen';
+import ListNoteScreen from './ListNote'
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -53,7 +54,8 @@ const Screens = ({navigation}) => {
             <Stack.Screen name="Priority" component={PriorityScreen} />
             <Stack.Screen name="Status" component={StatusScreen} />
             <Stack.Screen name="Note" component={NoteScreen} /> 
-            <Stack.Screen name="Account" component={AccountScreen} />           
+            <Stack.Screen name="Account" component={AccountScreen} /> 
+            <Stack.Screen name="ListNote" component={ListNoteScreen} />              
         </Stack.Navigator>
     )
 };
@@ -92,9 +94,15 @@ const DrawerContent = props => {
                 icon={()=><AntDesign name="bells" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
-                label="Note"
+                label="Add Note"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Note')}}
+                icon={()=><AntDesign name="plussquareo" size={18} color="red" ></AntDesign>}
+            />
+            <DrawerItem 
+                label="List Note"
+                labelStyle={{fontSize: 20}}
+                onPress={()=>{props.navigation.navigate('ListNote')}}
                 icon={()=><AntDesign name="form" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
