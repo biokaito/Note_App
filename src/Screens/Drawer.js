@@ -3,15 +3,17 @@ import React from 'react';
 import { Button, StyleSheet, Text, View,Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import { TouchableHighlight } from 'react-native-gesture-handler';
+import { Feather, AntDesign } from '@expo/vector-icons';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import HomeScreen from './HomeScreen';
 import CategoryScreen from './CategoryScreen';
 import NoteScreen from './NoteScreen';
 import PriorityScreen from './PriorityScreen';
 import StatusScreen from './StatusScreen';
-import { TouchableHighlight } from 'react-native-gesture-handler';
-import { Feather, AntDesign } from '@expo/vector-icons';
- 
+import AccountScreen from './AccountScreen'
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -24,20 +26,34 @@ const Screens = ({navigation}) => {
                 headerLeft: ()=>(
                     <TouchableHighlight
                         onPress={()=>{navigation.openDrawer()}}
-                        style={{backgroundColor: 'green',width: 100, height: 30, alignItems: 'center', justifyContent:'center'}}
+                        style={styles.headerLeft}
                     >
-                        <Text>
-                            MENU
-                        </Text>
+                        <AntDesign name="bars" size={30} color="black" ></AntDesign>
                     </TouchableHighlight>
-                )
+                ),
+                headerRight: ()=>(
+                    <TouchableHighlight
+                        onPress={()=>{alert('Chưa nghĩ ra để làm gì')}}
+                        style={styles.headerRight}
+                    >
+                        <AntDesign name="questioncircleo" size={30} color="black" ></AntDesign>
+                    </TouchableHighlight>
+                ),
+                headerStyle: {
+                    backgroundColor: '#f4511e',
+                },
+                headerTintColor: 'black',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },                
             }}
         >
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Category" component={CategoryScreen} />
             <Stack.Screen name="Priority" component={PriorityScreen} />
             <Stack.Screen name="Status" component={StatusScreen} />
-            <Stack.Screen name="Note" component={NoteScreen} />        
+            <Stack.Screen name="Note" component={NoteScreen} /> 
+            <Stack.Screen name="Account" component={AccountScreen} />           
         </Stack.Navigator>
     )
 };
@@ -46,35 +62,46 @@ const DrawerContent = props => {
     return(
         <DrawerContentScrollView {...props} >
             <View style={{alignItems: 'center', padding:10}}>
-                <Image style={{height:100, width: 100,marginBottom: 20 }} source={require('../images/wear_mask.png')}>
+                <Image style={styles.avtImage} source={require('../images/wear_mask.png')}>
 
                 </Image>
-                <Text>ĐÂY LÀ ỨNG DỤNG NOTE CỰC MẠNH</Text>
+                <Text style={{fontSize:45,fontWeight: 'bold'}}>NOTE APP</Text>
             </View>
             <DrawerItem 
                 label="Home"
+                labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Home')}}
                 icon={()=><AntDesign name="piechart" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
                 label="Category"
+                labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Category')}}
                 icon={()=><AntDesign name="database" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
                 label="Priority"
+                labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Priority')}}
                 icon={()=><AntDesign name="copy1" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
                 label="Status"
+                labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Status')}}
                 icon={()=><AntDesign name="bells" size={18} color="red" ></AntDesign>}
             />
             <DrawerItem 
                 label="Note"
+                labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Note')}}
                 icon={()=><AntDesign name="form" size={18} color="red" ></AntDesign>}
+            />
+            <DrawerItem 
+                label="Your Account"
+                labelStyle={{fontSize: 20}}
+                onPress={()=>{props.navigation.navigate('Account')}}
+                icon={()=><AntDesign name="woman" size={18} color="red" ></AntDesign>}
             />
         </DrawerContentScrollView>
     )
@@ -90,3 +117,18 @@ export default () => {
         </Drawer.Navigator>
     );
 }
+
+const styles = EStyleSheet.create({
+    avtImage:{
+        height:'10rem', 
+        width: '10rem',
+        marginBottom: '2rem'
+    },
+    headerLeft:{
+        marginLeft: '1rem',
+    },
+    headerRight:{
+        marginRight: '1rem',
+    }
+})
+EStyleSheet.build();

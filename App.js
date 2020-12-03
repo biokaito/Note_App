@@ -15,7 +15,6 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           headerMode='none'
-          initialRouteName='RegisterScreen'
         >
           
           <Stack.Screen name="Login" component={LoginScreen} />
