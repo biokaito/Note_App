@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View, Image, Dimensions, Platform, ImageBackground } from 'react-native';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
 import * as Animatable from 'react-native-animatable';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import SignIn from '../Components/SignIn'
 import SignUp from '../Components/SignUp'
@@ -86,7 +87,7 @@ export default class LoginScreen extends React.Component {
 }
 }
 const screenWidth = Dimensions.get("screen").width;
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container:{
       flex: 1,
       //backgroundColor: '#929aab'
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
   image:{
       width: screenWidth/2,
       height: screenWidth/2,
-      borderRadius: 100
+      borderRadius: '10rem'
   },
   header:{
       flex: 1,
@@ -125,10 +126,11 @@ const styles = StyleSheet.create({
   },
   imageContainer:{
       flex: 1,
-      marginBottom: Platform.select({android: 1}),
+      marginBottom: Platform.select({android: '0.1rem'}),
       backgroundColor: 'white',
-      borderRadius: 8,
-      borderWidth: 1,
+      borderRadius: '0.8rem',
+      borderWidth: '0.1rem',
       borderColor: "#EEEEEE",
   },
 });
+EStyleSheet.build()
