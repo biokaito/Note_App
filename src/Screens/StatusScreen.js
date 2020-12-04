@@ -198,7 +198,13 @@ const styles = EStyleSheet.create({
     borderBottomLeftRadius: 60,
     borderBottomRightRadius: 60,
     width: '100%',
-    
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    shadowOffset: {
+      width: 4,
+      height: -4
+    },
   },
   wrapper2:{
     flex: 2,

@@ -107,7 +107,10 @@ export default function NoteScreen() {
                   renderItem={({item})=>{
                     return(
                       <View>
-                        <TouchableOpacity style={styles.categoryButton}>
+                        <TouchableOpacity 
+                          style={styles.categoryButton}
+
+                        >
                           <Text>{item.title}</Text>
                         </TouchableOpacity>
                       </View>
@@ -195,6 +198,13 @@ const styles = EStyleSheet.create({
     borderBottomRightRadius: '5rem',
     width: '100%',
     padding: '0.5rem',
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    shadowOffset: {
+      width: 4,
+      height: -4
+    },
   },
   wrapper2:{
     flex: 4,

@@ -195,10 +195,16 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#ffba93',
-    borderBottomLeftRadius: 60,
-    borderBottomRightRadius: 60,
+    borderBottomLeftRadius: '5rem',
+    borderBottomRightRadius: '5rem',
     width: '100%',
-    
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    shadowOffset: {
+      width: 4,
+      height: -4
+    },
   },
   wrapper2:{
     flex: 2,

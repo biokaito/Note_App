@@ -235,6 +235,13 @@ const styles = EStyleSheet.create({
     borderBottomLeftRadius: '6rem',
     borderBottomRightRadius: '6rem',
     width: '100%',
+    shadowColor: 'black',
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    shadowOffset: {
+      width: 4,
+      height: -4
+    },
     
   },
   wrapper2:{

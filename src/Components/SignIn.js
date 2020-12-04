@@ -9,6 +9,7 @@ import{
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class SignIn extends React.Component{
     
@@ -50,7 +51,7 @@ export default class SignIn extends React.Component{
                         { this.state.err ? <Text style={styles.errText}>{this.state.err}</Text>  : null}
                 <View style={styles.buttonLogin}>
                     <View>
-                        <TouchableHighlight
+                        <TouchableOpacity
                             onPress={()=>this.props.props.navigation.navigate('Note App')}
                         >
                             <View style={styles.button}>
@@ -60,7 +61,7 @@ export default class SignIn extends React.Component{
                                     size={25}
                                 />                                    
                             </View>
-                        </TouchableHighlight>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>   

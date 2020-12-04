@@ -10,6 +10,7 @@ import{
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class SignIn extends React.Component{
     
@@ -49,7 +50,7 @@ export default class SignIn extends React.Component{
                 </View>
                 <View style={styles.buttonContainer}>                    
                     <View>
-                        <TouchableHighlight
+                        <TouchableOpacity
                             onPress={()=>{/*Gửi thông tin lên cơ sở dữ liệu xong rồi slide qua trang đăng nhập để đnawg nhập */}}
                         >
                             <View style={styles.button}>
@@ -59,7 +60,7 @@ export default class SignIn extends React.Component{
                                     size={25}
                                 />                                    
                             </View>
-                        </TouchableHighlight>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
