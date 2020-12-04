@@ -63,11 +63,11 @@ const Screens = ({navigation}) => {
 const DrawerContent = props => {
     return(
         <DrawerContentScrollView {...props} >
-            <View style={{alignItems: 'center', padding:10}}>
+            <View style={styles.drawerHeader}>
                 <Image style={styles.avtImage} source={require('../images/wear_mask.png')}>
 
                 </Image>
-                <Text style={{fontSize:45,fontWeight: 'bold'}}>NOTE APP</Text>
+                <Text style={styles.drawerHeaderTitle}>NOTE APP</Text>
             </View>
             <DrawerItem 
                 label="Home"
@@ -131,6 +131,14 @@ const styles = EStyleSheet.create({
         height:'10rem', 
         width: '10rem',
         marginBottom: '2rem'
+    },
+    drawerHeader:{
+        alignItems: 'center', 
+        padding:'1rem'
+    },
+    drawerHeaderTitle:{
+        fontSize:'3rem',
+        fontWeight: 'bold'
     },
     headerLeft:{
         marginLeft: '1rem',

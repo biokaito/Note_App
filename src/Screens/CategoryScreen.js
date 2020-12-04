@@ -1,9 +1,11 @@
+import { AntDesign } from '@expo/vector-icons';
 import { StackActions } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React,{useState} from 'react';
-import { Image, StyleSheet, Text, View,TextInput } from 'react-native';
+import { Image, StyleSheet, Text, View,TextInput,Button, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import Modal from 'react-native-modal';
 
 export default function StatusScreen() {
   const [status,setstatus] = useState([
@@ -29,6 +31,7 @@ export default function StatusScreen() {
   },
 
 ])
+const [isModalVisible, setIsModalVisible] =useState(false)
   return (
     <View style={styles.container}>
       <View style={styles.wrapper1}>
@@ -74,13 +77,47 @@ export default function StatusScreen() {
         </ScrollView>
       </View>
       <View style={styles.addButton}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={()=>{
+            setIsModalVisible(!isModalVisible)
+          }}
+        >
           <Image 
             source={require('../images/Add-icon.png')}
             style={styles.addButtonImage}
           />
         </TouchableOpacity>
       </View>
+      <Modal isVisible={isModalVisible}>
+        <View style={styles.modalContainer}>
+            <ImageBackground
+              source={require('../images/wallpaper.png')}
+              style={styles.modalBackgroundImage}
+            > 
+              <View style={styles.modalContainer}>
+                <View style={styles.headerModal}>
+                  <Text style={styles.addNewCategoryText}>Add new category</Text>
+                </View>
+                <View style={styles.textInputWrapper}>
+                  <TextInput 
+                    placeholder="  New category..."
+                    style={styles.textInput}
+                  />
+                  <TouchableOpacity
+                    onPress={()=>{
+                      setIsModalVisible(!isModalVisible)
+                    }}
+                  >
+                    <Image 
+                      source={require('../images/add-button-icon-png-1.png')}
+                      style={styles.imageAddButton}
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </ImageBackground>                
+          </View>         
+      </Modal>
     </View>
   );
 }
@@ -92,6 +129,42 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  modalContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addNewCategoryText: {
+    fontSize: '2rem',
+    fontFamily: 'Courier-Bold',
+  },
+  modalBackgroundImage:{
+    width: '30rem',
+    height: '15rem',
+    resizeMode: 'contain',
+  },
+  headerModal:{    
+    borderBottomWidth: '0.1rem',
+    borderBottomColor: 'grey',
+  },
+  textInputWrapper:{
+    flexDirection: 'row',
+    padding: '2rem'
+  },
+  textInput:{
+    borderBottomWidth: '0.1rem',
+    borderBottomColor: '#FFF',
+    borderLeftWidth: '0.1rem',
+    borderLeftColor: '#FFF',
+    width: '15rem',
+    fontSize: '1.5rem',
+    marginRight: '2rem'
+  },
+  imageAddButton:{
+    width: '3rem',
+    height: '3rem',
+  },
+
   addButtonImage:{
     width: '5rem',
     height: '5rem'
@@ -159,8 +232,8 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#ffba93',
-    borderBottomLeftRadius: 60,
-    borderBottomRightRadius: 60,
+    borderBottomLeftRadius: '6rem',
+    borderBottomRightRadius: '6rem',
     width: '100%',
     
   },

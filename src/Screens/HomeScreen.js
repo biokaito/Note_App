@@ -140,8 +140,8 @@ const styles = EStyleSheet.create({
     flex: 2.3,
     justifyContent: 'center',
     backgroundColor: '#ffba93',
-    borderBottomLeftRadius: 60,
-    borderBottomRightRadius: 60,
+    borderBottomLeftRadius: '5rem',
+    borderBottomRightRadius: '5rem',
     width: '100%',
     
   },
