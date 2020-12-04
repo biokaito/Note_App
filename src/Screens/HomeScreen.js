@@ -45,7 +45,7 @@ export default function HomeScreen() {
         </View>
         <View style={styles.dateWrapper}>   
           <Image
-            source={require('../images/calendar-512.webp')}
+            source={require('../images/calendar.png')}
             style={styles.calenderIcon}
           />
           <Text style={styles.dateText}>{currentDate}</Text>
@@ -59,10 +59,11 @@ export default function HomeScreen() {
           <View style={styles.titleWrapper}>
             <Text style={styles.title}>Overall </Text>
           </View>
+          <View style={styles.crossbar}/>
           <View style={styles.pieChartWrapper}>
             <PieChart
               data={data}
-              width={screenWidth}
+              width={screenWidth-15}
               height={220}
               chartConfig={chartConfig}
               accessor="Total"
@@ -89,24 +90,38 @@ const styles = EStyleSheet.create({
     marginLeft: '1rem'
   },
   dateText:{
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    fontFamily: 'Courier-Bold'
+    fontSize: '1.2rem',
+    fontFamily: 'Courier-Bold',
+    fontStyle: 'italic'
   },
   calenderIcon:{
     width: '2rem',
-    height: '2rem'
+    height: '2rem',
+    marginLeft: '0.2rem'
+  },
+  crossbar:{    
+    borderBottomWidth: '0.1rem',
+    borderBottomColor: 'grey',
+    width: '8rem',
+    marginBottom: '1.5rem'
   },
   nameWrapper:{
     padding: '0.5rem'
   },
   textID:{
-    fontSize: '2rem',
-    fontWeight: 'bold'
+    fontSize: '2.2rem',
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {
+      width: 0, 
+      height: 4
+    },
+    textShadowRadius: '1rem'
   },
   textName:{
     fontSize: '1.5rem',
-    color : 'gray'
+    color : 'gray',
+    fontStyle: 'italic'
   },
   avt:{
     width: '8rem',
@@ -126,7 +141,8 @@ const styles = EStyleSheet.create({
     borderRadius: '2rem',
   },
   titleWrapper:{
-    marginTop: '0.5rem'
+    marginTop: '0.5rem',
+    marginLeft: '0.5rem'
   },
   title:{
     marginBottom : '1rem',
@@ -139,12 +155,12 @@ const styles = EStyleSheet.create({
   wrapper1:{
     flex: 2.3,
     justifyContent: 'center',
-    backgroundColor: '#ffba93',
+    backgroundColor: '#03506f',
     borderBottomLeftRadius: '5rem',
     borderBottomRightRadius: '5rem',
     width: '100%',
     shadowColor: 'black',
-    shadowOpacity: 0.5,
+    shadowOpacity: 1,
     shadowRadius: 12,
     shadowOffset: {
       width: 4,

@@ -73,43 +73,43 @@ const DrawerContent = props => {
                 label="Home"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Home')}}
-                icon={()=><AntDesign name="piechart" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="piechart" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="Category"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Category')}}
-                icon={()=><AntDesign name="database" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="database" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="Priority"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Priority')}}
-                icon={()=><AntDesign name="copy1" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="copy1" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="Status"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Status')}}
-                icon={()=><AntDesign name="bells" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="bells" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="Add Note"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Note')}}
-                icon={()=><AntDesign name="plussquareo" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="plussquareo" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="List Note"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('ListNote')}}
-                icon={()=><AntDesign name="form" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="form" size={18} color="#03506f" ></AntDesign>}
             />
             <DrawerItem 
                 label="Your Account"
                 labelStyle={{fontSize: 20}}
                 onPress={()=>{props.navigation.navigate('Account')}}
-                icon={()=><AntDesign name="woman" size={18} color="red" ></AntDesign>}
+                icon={()=><AntDesign name="woman" size={18} color="#03506f" ></AntDesign>}
             />
         </DrawerContentScrollView>
     )

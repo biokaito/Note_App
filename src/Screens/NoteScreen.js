@@ -37,17 +37,19 @@ export default function NoteScreen() {
     <View style={styles.container}>      
       <StatusBar style="auto" />
       <View style={styles.wrapper1}>
-        <View>
-          <Text style={styles.header}>Create new Task</Text>
-        </View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Create a note</Text>
+        </View>       
+      </View>
+      <View style={styles.wrapper2}>
         <View>
           <Text style={styles.titleTag}>
             Title
           </Text>
           <TextInput 
-            placeholder="Make task for your life"
-            placerholderStyle={{fontFamily: 'Courier-Bold', fontSize: 50}}
+            placeholder="Type your title..."
             style={styles.textInput}
+            placeholderTextColor='#456268'
           />
         </View>
         <View>
@@ -81,8 +83,6 @@ export default function NoteScreen() {
             }}
           />
         </View>
-      </View>
-      <View style={styles.wrapper2}>
             <View style={styles.desWrapper}>
               <View>
                 <Text style={styles.titleTag}>Description</Text>
@@ -165,7 +165,7 @@ const styles = EStyleSheet.create({
     backgroundColor: '#FFF',
     borderBottomWidth: '0.1rem',
     borderBottomColor: '#EEE',
-    marginBottom: '0.5rem'
+    marginBottom: '1rem'
   },
   textarea: {
     textAlignVertical: 'top',  
@@ -177,29 +177,37 @@ const styles = EStyleSheet.create({
   titleTag:{
     color:'gray',
     fontFamily: 'Courier-Bold',
-    marginBottom: '0.2rem',
     fontSize: '1.2rem',
+    marginBottom: '0.5rem'
   },
   header:{
-    fontSize: '2rem',
+    marginTop: '5rem'
+  },
+  headerText:{
+    fontSize: '2.5rem',
     fontWeight: 'bold',
-    marginBottom: '1rem',
-    marginTop: '3rem'
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {
+      width: 0, 
+      height: 4
+    },
+    textShadowRadius: '1rem'
   },
   datePickerStyle: {
     width: '20rem',
-    marginBottom: 0,
+    marginBottom: '1rem',
   },
   wrapper1:{
-    flex: 3,
+    flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ffba93',
+    alignItems: 'center',
+    backgroundColor: '#03506f',
     borderBottomLeftRadius: '5rem',
     borderBottomRightRadius: '5rem',
     width: '100%',
     padding: '0.5rem',
     shadowColor: 'black',
-    shadowOpacity: 0.5,
+    shadowOpacity: 1,
     shadowRadius: 12,
     shadowOffset: {
       width: 4,
@@ -213,14 +221,17 @@ const styles = EStyleSheet.create({
   },
 
   textInput:{
-    color: 'gray',
-    backgroundColor: '#ffba93',
-    paddingHorizontal: '1rem',
-    paddingVertical: '1.5rem',
-    borderRadius: '0.5rem',
+    color: 'black',
+    backgroundColor: '#bbbbbb',
+    padding: '0.7rem',
+    borderRadius: '0.7rem',
     marginBottom: '1rem',
     borderBottomWidth: '0.05rem',
-    borderBottomColor: 'gray'
+    borderBottomColor: 'gray',
+    borderLeftWidth: '0.05rem',
+    borderLeftColor: 'gray',
+    fontSize: '1.2rem',
+    fontStyle: 'italic'
     
 },
 });

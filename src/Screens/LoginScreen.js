@@ -50,7 +50,7 @@ export default class LoginScreen extends React.Component {
     <View style={styles.container}>
         <ImageBackground
             style={styles.imageBackground}
-            source={require('../images/wallpaper.png')}
+            source={require('../images/wallpaperr.jpg')}
         >                
             <StatusBar hidden={true} />                    
             <View style={styles.header}>

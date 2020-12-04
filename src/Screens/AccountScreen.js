@@ -80,7 +80,7 @@ const styles = EStyleSheet.create({
     color: 'white'
   },
   saveButton:{
-    backgroundColor: 'blue',
+    backgroundColor: '#007AFF', //Android sẽ là #2196F3
     borderRadius: '5rem',
     position: 'absolute',
     bottom: '-10rem',
@@ -144,12 +144,12 @@ const styles = EStyleSheet.create({
     flex: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffba93',
+    backgroundColor: '#03506f',
     borderBottomLeftRadius: '5rem',
     borderBottomRightRadius: '5rem',
     width: '100%',
     shadowColor: 'black',
-    shadowOpacity: 0.5,
+    shadowOpacity: 1,
     shadowRadius: 12,
     shadowOffset: {
       width: 4,

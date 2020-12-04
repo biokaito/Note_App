@@ -102,7 +102,7 @@ export default class SignIn extends React.Component{
         },
         button:{
             width: '8rem',
-            backgroundColor: "#929aab",
+            backgroundColor: "#bbbbbb",
             marginTop: '1rem',
             borderRadius: '5rem',
             justifyContent: 'center',

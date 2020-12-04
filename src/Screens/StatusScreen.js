@@ -31,10 +31,12 @@ export default function StatusScreen() {
 
 ])
 const [isModalVisible, setIsModalVisible] =useState(false)
+const [isModalEditVisible, setIsModalEditVisible] =useState(false)
+const [selectedItem, setSelectedItem] = React.useState(null)
   return (
     <View style={styles.container}>
       <View style={styles.wrapper1}>
-        <View style={styles.infoWrapper}>
+        {/*<View style={styles.infoWrapper}>
           <Image 
             source={require('../images/avt.jpg')} 
             style={styles.avt}
@@ -43,7 +45,7 @@ const [isModalVisible, setIsModalVisible] =useState(false)
             <Text style={styles.textID}>ID đăng nhập</Text>
             <Text style={styles.textName}>Tên người dùng</Text>
           </View>
-        </View>
+        </View>*/}
       </View>
       <View style={styles.wrapper2}>
         <View style={styles.header}>
@@ -60,16 +62,23 @@ const [isModalVisible, setIsModalVisible] =useState(false)
             data={status}
             renderItem={({item})=>{
               return(
-                <View style={styles.listWrapper}>
-                  <Image
-                    source={require('../images/icon.gif')}
-                    style={styles.icon}
-                  />
-                  <View>
-                    <Text style={styles.textTitle}>{item.title}</Text>
-                    <Text style={styles.textAmont}>{item.amountOfTask} task now</Text>
+                <TouchableOpacity
+                  onPress={()=>{
+                    //setSelectedItem(item)
+                    setIsModalEditVisible(!isModalEditVisible)
+                  }}
+                >
+                  <View style={styles.listWrapper}>
+                    <Image
+                      source={require('../images/icon.gif')}
+                      style={styles.icon}
+                    />
+                    <View>
+                      <Text style={styles.textTitle}>{item.title}</Text>
+                      <Text style={styles.textAmont}>{item.amountOfTask} task now</Text>
+                    </View>
                   </View>
-                </View>
+                </TouchableOpacity>
               )
             }}
           />
@@ -87,31 +96,99 @@ const [isModalVisible, setIsModalVisible] =useState(false)
           />
         </TouchableOpacity>
       </View>
+      {/*Modal */}
       <Modal isVisible={isModalVisible}>
         <View style={styles.modalContainer}>
             <ImageBackground
-              source={require('../images/wallpaper.png')}
+              source={require('../images/wallpaperr.jpg')}
               style={styles.modalBackgroundImage}
             > 
               <View style={styles.modalContainer}>
                 <View style={styles.headerModal}>
-                  <Text style={styles.addNewCategoryText}>Add new Status</Text>
+                  <Text style={styles.addNewCategoryText}>Add new Category</Text>
                 </View>
+                <View style={styles.crossbar}/>
                 <View style={styles.textInputWrapper}>
                   <TextInput 
-                    placeholder="  New category..."
+                    placeholder="New category..."
                     style={styles.textInput}
                   />
-                  <TouchableOpacity
-                    onPress={()=>{
-                      setIsModalVisible(!isModalVisible)
-                    }}
-                  >
-                    <Image 
-                      source={require('../images/add-button-icon-png-1.png')}
-                      style={styles.imageAddButton}
-                    />
-                  </TouchableOpacity>
+                  <View style={styles.buttonWrapper}>
+                      <TouchableOpacity
+                        onPress={()=>{
+                          setIsModalVisible(!isModalVisible)
+                        }}
+                      >
+                        <Image 
+                          source={require('../images/add-button-icon-png-1.png')}
+                          style={styles.imageAddButton}
+                        />
+                      </TouchableOpacity> 
+                      <TouchableOpacity
+                        onPress={()=>{
+                          setIsModalVisible(!isModalVisible)
+                        }}
+                      >
+                        <Image 
+                          source={require('../images/cancel.png')}
+                          style={styles.imageAddButton}
+                        />
+                      </TouchableOpacity> 
+                    </View>
+                </View>
+              </View>
+            </ImageBackground>                 
+          </View>
+      </Modal>
+      <Modal isVisible={isModalEditVisible}>
+        <View style={styles.modalContainer}>
+            <ImageBackground
+              source={require('../images/wallpaperr.jpg')}
+              style={styles.modalBackgroundImage}
+            > 
+              <View style={styles.modalContainer}>
+                <View style={styles.headerModal}>
+                  <Text style={styles.addNewCategoryText}>Edit Status</Text>
+                </View>
+                <View style={styles.crossbar}/>
+                <View style={styles.textInputWrapper}>
+                  <TextInput 
+                    placeholder='dsdsd'
+                    style={styles.textInput}
+                  />
+                  
+                    <View style={styles.buttonWrapper}>
+                      <TouchableOpacity
+                        onPress={()=>{
+                          setIsModalEditVisible(!isModalEditVisible)
+                        }}
+                      >
+                        <Image 
+                          source={require('../images/add-button-icon-png-1.png')}
+                          style={styles.imageAddButton}
+                        />
+                      </TouchableOpacity> 
+                      <TouchableOpacity
+                        onPress={()=>{
+                          setIsModalEditVisible(!isModalEditVisible)
+                        }}
+                      >
+                        <Image 
+                          source={require('../images/delete.png')}
+                          style={styles.imageAddButton}
+                        />
+                      </TouchableOpacity> 
+                      <TouchableOpacity
+                        onPress={()=>{
+                          setIsModalEditVisible(!isModalEditVisible)
+                        }}
+                      >
+                        <Image 
+                          source={require('../images/cancel.png')}
+                          style={styles.imageAddButton}
+                        />
+                      </TouchableOpacity> 
+                    </View>                  
                 </View>
               </View>
             </ImageBackground>                 
@@ -131,6 +208,11 @@ const styles = EStyleSheet.create({
   addButtonImage:{
     width: '5rem',
     height: '5rem'
+  },
+  buttonWrapper:{
+    flexDirection: 'row',
+    padding: '1rem',
+    justifyContent: 'space-between'
   },
   addButton:{
     position: 'absolute',
@@ -194,7 +276,7 @@ const styles = EStyleSheet.create({
   wrapper1:{
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ffba93',
+    backgroundColor: '#03506f',
     borderBottomLeftRadius: 60,
     borderBottomRightRadius: 60,
     width: '100%',
@@ -207,7 +289,7 @@ const styles = EStyleSheet.create({
     },
   },
   wrapper2:{
-    flex: 2,
+    flex: 4,
     width: '100%',
     padding: '0.5rem',
   },
@@ -221,17 +303,17 @@ const styles = EStyleSheet.create({
     fontFamily: 'Courier-Bold',
   },
   modalBackgroundImage:{
-    width: '30rem',
-    height: '15rem',
-    resizeMode: 'contain',
+    width: '22rem',
+    height: '14rem',
   },
-  headerModal:{    
+  crossbar:{    
     borderBottomWidth: '0.1rem',
     borderBottomColor: 'grey',
+    width: '10rem'
   },
   textInputWrapper:{
-    flexDirection: 'row',
-    padding: '2rem'
+    padding: '2rem',
+    
   },
   textInput:{
     borderBottomWidth: '0.1rem',
@@ -240,7 +322,9 @@ const styles = EStyleSheet.create({
     borderLeftColor: '#FFF',
     width: '15rem',
     fontSize: '1.5rem',
-    marginRight: '2rem'
+    marginRight: '2rem',
+    borderRadius: '0.5rem',
+    padding: '0.3rem',
   },
   imageAddButton:{
     width: '3rem',
